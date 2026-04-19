@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 INSTANCE_DIR = BASE_DIR / "instance"
 INSTANCE_DIR.mkdir(exist_ok=True)
 
-DATABASE_PATH = INSTANCE_DIR / "news.db"
+DATABASE_PATH = INSTANCE_DIR / "news_v2.db"
 
 DEFAULT_SETTINGS = {
     "items_per_page": "10",
