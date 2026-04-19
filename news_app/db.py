@@ -31,7 +31,7 @@ def init_db() -> None:
                 source_id INTEGER NOT NULL,
                 title TEXT NOT NULL,
                 summary TEXT,
-                link TEXT NOT NULL UNIQUE,
+                link TEXT NOT NULL,
                 published_at TEXT,
                 author TEXT,
                 category TEXT,
@@ -74,17 +74,17 @@ def _seed_defaults(conn: sqlite3.Connection) -> None:
     conn.commit()
 
 
-def query_all(sql: str, params: Iterable = ()):  # type: ignore[override]
+def query_all(sql: str, params: Iterable = ()):
     with closing(get_connection()) as conn:
         return conn.execute(sql, params).fetchall()
 
 
-def query_one(sql: str, params: Iterable = ()):  # type: ignore[override]
+def query_one(sql: str, params: Iterable = ()):
     with closing(get_connection()) as conn:
         return conn.execute(sql, params).fetchone()
 
 
-def execute(sql: str, params: Iterable = ()) -> None:  # type: ignore[override]
+def execute(sql: str, params: Iterable = ()) -> None:
     with closing(get_connection()) as conn:
         conn.execute(sql, params)
         conn.commit()
